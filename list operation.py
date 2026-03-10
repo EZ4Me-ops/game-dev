@@ -19,3 +19,21 @@ for i in countries:
 # add item
 countries.append("india")
 print(countries)
+
+#remove
+countries.remove("USA")
+print(countries)
+
+#update
+countries[3]="brazil"
+print(countries)
+
+#find index
+p=countries.index("brazil")
+print(p)
+countries[p]="BRAZIL"
+print(countries)
+
+#if a item exits or not
+print ("JAPAN"in countries)
+print ("JAPAN"not in countries)
