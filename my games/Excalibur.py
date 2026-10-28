@@ -15,16 +15,22 @@ button2=Rect(250,25,50,50)
 
 button3=Rect(350,25,50,50)
 
+button4=Rect(450,25,50,50)
+
+
 color="black"
 
 def draw():
     screen.fill("white")
-    for point in points:
-        screen.draw.filled_circle(point,3,color)
+    for point,c in points:
+        screen.draw.filled_circle(point,3,c)
     screen.draw.text("choose a color from below!!!!!!!!",(0,0),color="black")
     screen.draw.filled_rect(button1,"red")
     screen.draw.filled_rect(button2,"black")
     screen.draw.filled_rect(button3,"sky blue")
+    screen.draw.filled_rect(button4,"white")
+    screen.draw.textbox("erasor",button4,color="black")
+    
 
 def on_mouse_down(pos):
     global drawing,color
@@ -35,7 +41,8 @@ def on_mouse_down(pos):
             color="black"
     if button3.collidepoint(pos):
             color="sky blue"
-                  
+    if button4.collidepoint(pos):
+                color="white"
         
 
 def on_mouse_up(pos):
@@ -45,7 +52,7 @@ def on_mouse_up(pos):
 
 def on_mouse_move(pos):
     if drawing:
-        points.append(pos)
+        points.append([pos,color])
         print(points)
 
 
